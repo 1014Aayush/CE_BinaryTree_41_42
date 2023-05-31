@@ -2,7 +2,7 @@
 #include "student.h"
 #ifndef arrayBST_h
 #define arrayBST_h
-#define MAX_SIZE 150
+#define MAX_SIZE 140
 
 class ArrayBSTNode
 {
