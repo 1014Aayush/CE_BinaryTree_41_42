@@ -1,46 +1,43 @@
-#include "./abstractBST.h"
-#include "student.h"
 #ifndef arrayBST_h
 #define arrayBST_h
-#define MAX_SIZE 140
 
-class ArrayBSTNode
+#include "./abstractBST.h"
+#define MAX_SIZE 10
+
+struct ArrayBSTNode
 {
 public:
     int key;
-    Student student;
+    int value;
+
     ArrayBSTNode()
     {
         key = 0;
-        Student student;
-        student = student;
+        value = 0;
     };
-    ArrayBSTNode(int k, Student newstudent)
+
+    ArrayBSTNode(int k, int value)
     {
         key = k;
-        student = newstudent;
+        value = value;
     };
 };
 
-class ArrayBST : public AbstractBST
+class ArrayBST
 {
-private:
-    ArrayBSTNode BST[MAX_SIZE];
-    int size;
-
 public:
-    ArrayBST(){};
-    ArrayBST(ArrayBSTNode Node)
-    {
-        int index;
-        BST[index] = Node;
-    }
-    virtual bool isEmpty();
-    bool isFull();
-    void addBST(int key, Student value);
+    ArrayBST();
+    ~ArrayBST();
+    bool isEmpty();
+    void addBST(int key, int value);
     bool searchBST(int key);
-    void removeBST(int key);
+
+    void removeBST(int keytoDelete);
     void printBST();
+
+private:
+    int size;
+    ArrayBSTNode BST[MAX_SIZE];
 };
 
 #endif

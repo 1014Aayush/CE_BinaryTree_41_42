@@ -1,36 +1,32 @@
+#include <iostream>
+#include "./header/arrayBST.h"
 #include "./cpp/arrayBST.cpp"
-#include "./header/abstractBST.h"
-#include "./header/student.h"
 using namespace std;
 
 int main()
 {
-    Student student;
-    student.name = 'A';
-    student.age = 20;
-    student.roll_no = 42;
+    ArrayBST a;
+    cout << "Is Empty : " << a.isEmpty() << endl;
 
-    ArrayBSTNode Node1;
-    Node1.key = student.roll_no;
-    Node1.student = student;
+    cout << "Adding (Key, Value) pair of (13,0),(10,1),(8,2),(15,3),(100,4),(45,5),(1,7)" << endl;
+    a.addBST(13, 0);
+    a.addBST(10, 1);
+    a.addBST(8, 2);
+    a.addBST(15, 3);
+    a.addBST(100, 4);
+    a.addBST(45, 5);
+    a.addBST(1, 7);
 
-    ArrayBST ArrayB;
-    ArrayB.addBST(1, student);
-    ArrayB.addBST(3, student);
-    ArrayB.addBST(5, student);
-    ArrayB.addBST(6, student);
-    ArrayB.addBST(7, student);
-    ArrayB.addBST(2, student);
-    ArrayB.addBST(8, student);
-    ArrayB.printBST();
+    cout << "Search key 13 : " << a.searchBST(13) << endl;
+    cout << "Search key 10 : " << a.searchBST(10) << endl;
+    cout << "Search key 8 : " << a.searchBST(8) << endl;
+    cout << "Search key 15 : " << a.searchBST(15) << endl;
+    cout << "Search key 100 : " << a.searchBST(100) << endl;
+    cout << "Search key 45 : " << a.searchBST(45) << endl;
+    cout << "Search key 89 : " << a.searchBST(89) << endl;
+    cout << "Search key 1 : " << a.searchBST(1) << endl;
 
-    // Removes Node
-    ArrayB.removeBST(5);
-
-    // Prints BST After Removing
-    cout << endl
-         << "After Removing 5" << endl;
-    ArrayB.printBST();
-
-    return 0;
+    cout << "Removing Key 45" << endl;
+    a.removeBST(10);
+    cout << "Search key 45: " << a.searchBST(45) << endl;
 }
