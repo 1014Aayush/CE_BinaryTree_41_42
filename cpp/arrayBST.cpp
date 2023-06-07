@@ -19,7 +19,7 @@ void ArrayBST ::addBST(int key, int value)
 {
     if (size == MAX_SIZE)
     {
-        cout << "Sorry! The array exceeds its maximum size" << endl;
+        cout << "Size Exceed" << endl;
         return;
     }
     if (size == 0)
@@ -36,7 +36,7 @@ void ArrayBST ::addBST(int key, int value)
         {
             if ((2 * currentindex + 2) >= MAX_SIZE)
             {
-                cout << "Sorry! The array exceeds its maximum size" << endl;
+                cout << "Size Exceed" << endl;
                 return;
             }
             currentindex = 2 * currentindex + 2;
@@ -46,19 +46,19 @@ void ArrayBST ::addBST(int key, int value)
         {
             if ((2 * currentindex + 1) >= MAX_SIZE)
             {
-                cout << "Sorry! The array exceeds its maximum size" << endl;
+                cout << "Size Exceeded" << endl;
                 return;
             }
             currentindex = 2 * currentindex + 1;
         }
 
         else
-        { // update value for common key
+        {
             BST[currentindex].value = value;
             return;
         }
 
-        if (BST[currentindex].key == NULL)
+        if (BST[currentindex].key == 0)
         {
             BST[currentindex] = ArrayBSTNode(key, value);
             size++;
@@ -71,7 +71,7 @@ void ArrayBST ::removeBST(int keytoDelete)
 {
     if (size == 0)
     {
-        cout << "Array is empty, nothing to delete" << endl;
+        cout << "Array is empty" << endl;
         return;
     }
 
@@ -82,7 +82,7 @@ void ArrayBST ::removeBST(int keytoDelete)
         {
             if ((2 * currentIndex + 2) >= MAX_SIZE)
             {
-                cout << "Key not found" << endl;
+                cout << " Not Found" << endl;
                 return;
             }
             currentIndex = 2 * currentIndex + 2;
@@ -92,7 +92,7 @@ void ArrayBST ::removeBST(int keytoDelete)
         {
             if ((2 * currentIndex + 1) >= MAX_SIZE)
             {
-                cout << "Key not found" << endl;
+                cout << " Not Found" << endl;
                 return;
             }
             currentIndex = 2 * currentIndex + 1;
@@ -112,20 +112,16 @@ void ArrayBST ::removeBST(int keytoDelete)
                 BST[currentIndex] = BST[successorIndex];
                 currentIndex = successorIndex;
             }
-            // Case: 2  Node has only left child
             else if (2 * currentIndex + 1 < MAX_SIZE && BST[2 * currentIndex + 1].key != 0)
             {
                 BST[currentIndex] = BST[2 * currentIndex + 1];
                 currentIndex = 2 * currentIndex + 1;
-                // onlyleft = true;
             }
-            // Case: 3 Node has only right child
             else if (2 * currentIndex + 2 < MAX_SIZE && BST[2 * currentIndex + 2].key != 0)
             {
                 BST[currentIndex] = BST[2 * currentIndex + 2];
                 currentIndex = 2 * currentIndex + 2;
             }
-            // Case: 4 Node has  no childrean
             else
             {
                 BST[currentIndex] = ArrayBSTNode();
@@ -133,10 +129,9 @@ void ArrayBST ::removeBST(int keytoDelete)
             }
         }
 
-        // Key not found
-        if (BST[currentIndex].key == NULL)
+        if (BST[currentIndex].key == 0)
         {
-            cout << "Key not found" << endl;
+            cout << "Not Found" << endl;
             return;
         }
     }
@@ -169,7 +164,7 @@ bool ArrayBST::searchBST(int targetkey)
             cout << "The value of key " << BST[currentIndex].key << " is " << BST[currentIndex].value << " The index  is " << currentIndex << endl;
             return true;
         }
-        if (BST[currentIndex].key == NULL)
+        if (BST[currentIndex].key == 0)
         {
             return false;
         }

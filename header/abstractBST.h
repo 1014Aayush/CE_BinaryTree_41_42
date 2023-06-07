@@ -7,10 +7,11 @@ public:
     AbstractBST(){};
     ~AbstractBST(){};
     virtual bool isEmpty() = 0;
-    virtual bool isFull() = 0;
-    virtual void addBST(int key) = 0;
-    virtual bool searchBST(int key) = 0;
-    virtual void removeBST(int key) = 0;
+    virtual void addBST(int) = 0;
+    virtual void removeBST(int) = 0;
+    virtual bool searchBST(int) = 0;
+    virtual void max(int &output) = 0;
+    virtual void min(int &output) = 0;
 };
 
 #endif
